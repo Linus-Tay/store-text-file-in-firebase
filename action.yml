@@ -1,0 +1,19 @@
+name: 'Get Data'
+description: 'Extract information from GitHub text file'
+inputs:
+  owner:  # id of input
+    description: 'Owner of repository'
+    required: true
+    default: 'Linus-Tay'
+  repoName: 
+    description: 'Repository name'
+    required: true
+    default: 'Capstone-Website'
+  fileName: 
+    description: 'Name of file you would like to get data from'
+    required: true
+    default: 'context.txt'
+
+runs:
+  using: 'node12'
+  main: 'index.js'
