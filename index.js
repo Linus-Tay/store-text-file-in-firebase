@@ -10,7 +10,7 @@ try {
   const fileName = core.getInput('fileName');
   console.log(`Hello ${fileName}!`);
 
-  var textFileURL = "https://raw.githubusercontent.com/${owner}/${repoName}/master/${fileName}"
+  var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/master/" + fileName
   console.log(textFileURL)
   //   fetch(textFileURL)
 //     .then( response => response.text() )
