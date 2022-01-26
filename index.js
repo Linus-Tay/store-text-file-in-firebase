@@ -4,7 +4,7 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from "firebase/firestore"
 
 try {
-    var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/master/" + fileName
+    var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/context/" + fileName
     console.log(textFileURL)
     import { initializeApp } from 'firebase/app'
   
@@ -31,11 +31,15 @@ try {
     console.log(`Hello ${fileName}!`)
 
     const exerciseWeek = repoName.split("-")[1]
+    console.log(exerciseWeek)
     const collectionName = "exercise-" + exerciseWeek
+    console.log(collectionName)
     
     const myArray = textFileURL.split("\n")
     let longCommit = myArray[1]
+    console.log(longCommit)
     let result = myArray[2]
+    console.log(result)
 
     // Add a new document in collection "cities"
     db.collection(collectionName).doc(yourName).set({
