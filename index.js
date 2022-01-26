@@ -1,23 +1,48 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+const core = require('@actions/core')
+const github = require('@actions/github')
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from "firebase/firestore"
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const owner = core.getInput('owner');
-  console.log(`Hello ${owner}!`);
-  const repoName = core.getInput('repoName');
-  console.log(`Hello ${repoName}!`);
-  const fileName = core.getInput('fileName');
-  console.log(`Hello ${fileName}!`);
+    var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/master/" + fileName
+    console.log(textFileURL)
+    import { initializeApp } from 'firebase/app'
+  
+    const firebaseConfig = {
+      apiKey: process.env.FIREBASE_API_KEY,
+      authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+      appId: process.env.FIREBASE_APP_ID,
+      measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+    };
 
-  var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/master/" + fileName
-  console.log(textFileURL)
-  //   fetch(textFileURL)
-//     .then( response => response.text() )
-//     .then( text => {
-//         var data = text.split('\n')
-//         console.log(data[0])
-//     })
+    const app = initializeApp(firebaseConfig)
+    const db = getFirestore()
+
+    const owner = core.getInput('owner')
+    console.log(`Hello ${owner}!`)
+    const yourName = core.getInput('yourName')
+    console.log(`Hello ${yourName}!`)
+    const repoName = core.getInput('repoName')
+    console.log(`Hello ${repoName}!`)
+    const fileName = core.getInput('fileName')
+    console.log(`Hello ${fileName}!`)
+
+    const exerciseWeek = repoName.split("-")[1]
+    const collectionName = "exercise-" + exerciseWeek
+    
+    const myArray = textFileURL.split("\n")
+    let longCommit = myArray[1]
+    let result = myArray[2]
+
+    // Add a new document in collection "cities"
+    db.collection(collectionName).doc(yourName).set({
+        commit: longCommit,
+        result: result,
+    })
+
 } catch (error) {
-  core.setFailed(error.message);
+    core.setFailed(error.message);
 }
