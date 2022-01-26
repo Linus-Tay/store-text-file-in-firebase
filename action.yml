@@ -5,6 +5,10 @@ inputs:
     description: 'Owner of repository'
     required: true
     default: 'Linus-Tay'
+  yourName: 
+    description: 'Name of student'
+    required: true
+    default: 'Linus Tay'
   repoName: 
     description: 'Repository name'
     required: true
