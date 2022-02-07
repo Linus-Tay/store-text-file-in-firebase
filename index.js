@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore"
 
 // try {
 
+console.log('test')
 let owner = core.getInput('owner')
 console.log(`Hello ${owner}!`)
 let yourName = core.getInput('yourName')
