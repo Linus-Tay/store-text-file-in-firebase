@@ -19,13 +19,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore()
 
-let owner = ''
+let ownerx = ''
 let yourName = ''
 let repoName = ''
 let fileName = ''
 console.log()
 
-owner = core.getInput('owner')
+ownerx = core.getInput('owner')
 console.log(`Hello ${owner}!`)
 yourName = core.getInput('yourName')
 console.log(`Hello ${yourName}!`)
