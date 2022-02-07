@@ -28,6 +28,7 @@ try {
     console.log(`Hello ${repoName}!`)
     const fileName = core.getInput('fileName')
     console.log(`Hello ${fileName}!`)
+    //console.log()
 
     const exerciseWeek = repoName.split("-")[1]
     console.log(exerciseWeek)
