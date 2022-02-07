@@ -19,22 +19,22 @@ try {
     const app = initializeApp(firebaseConfig)
     const db = getFirestore()
 
-    const owner = core.getInput('owner')
+    let owner = core.getInput('owner')
     console.log(`Hello ${owner}!`)
-    const yourName = core.getInput('yourName')
+    let yourName = core.getInput('yourName')
     console.log(`Hello ${yourName}!`)
-    const repoName = core.getInput('repoName')
+    let repoName = core.getInput('repoName')
     console.log(`Hello ${repoName}!`)
-    const fileName = core.getInput('fileName')
+    let fileName = core.getInput('fileName')
     console.log(`Hello ${fileName}!`)
     //console.log()
 
-    const exerciseWeek = repoName.split("-")[1]
+    let exerciseWeek = repoName.split("-")[1]
     console.log(exerciseWeek)
-    const collectionName = "exercise-" + exerciseWeek
+    let collectionName = "exercise-" + exerciseWeek
     console.log(collectionName)
     
-    const myArray = textFileURL.split("\n")
+    let myArray = textFileURL.split("\n")
     let longCommit = myArray[1]
     console.log(longCommit)
     let result = myArray[2]
