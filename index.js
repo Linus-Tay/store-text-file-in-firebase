@@ -3,6 +3,16 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from "firebase/firestore"
 
 // try {
+
+let owner = core.getInput('owner')
+console.log(`Hello ${owner}!`)
+let yourName = core.getInput('yourName')
+console.log(`Hello ${yourName}!`)
+let repoName = core.getInput('repoName')
+console.log(`Hello ${repoName}!`)
+let fileName = core.getInput('fileName')
+console.log(`Hello ${fileName}!`)
+
 var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/context/" + fileName
 console.log(textFileURL)
 
@@ -18,22 +28,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore()
-
-let ownerx = ''
-let yourName = ''
-let repoName = ''
-let fileName = ''
-console.log()
-
-ownerx = core.getInput('owner')
-console.log(`Hello ${owner}!`)
-yourName = core.getInput('yourName')
-console.log(`Hello ${yourName}!`)
-repoName = core.getInput('repoName')
-console.log(`Hello ${repoName}!`)
-fileName = core.getInput('fileName')
-console.log(`Hello ${fileName}!`)
-//console.log()
 
 let exerciseWeek = repoName.split("-")[1]
 console.log(exerciseWeek)
