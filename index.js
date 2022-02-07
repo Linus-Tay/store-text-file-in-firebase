@@ -6,7 +6,6 @@ import { getFirestore } from "firebase/firestore"
 try {
     var textFileURL = "https://raw.githubusercontent.com/" + owner + "/" + repoName + "/context/" + fileName
     console.log(textFileURL)
-    import { initializeApp } from 'firebase/app'
   
     const firebaseConfig = {
       apiKey: process.env.FIREBASE_API_KEY,
