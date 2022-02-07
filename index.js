@@ -19,13 +19,18 @@ try {
     const app = initializeApp(firebaseConfig)
     const db = getFirestore()
 
-    let owner = core.getInput('owner')
+    let owner = ''
+    let yourName = ''
+    let repoName = ''
+    let fileName = ''
+
+    owner = core.getInput('owner')
     console.log(`Hello ${owner}!`)
-    let yourName = core.getInput('yourName')
+    yourName = core.getInput('yourName')
     console.log(`Hello ${yourName}!`)
-    let repoName = core.getInput('repoName')
+    repoName = core.getInput('repoName')
     console.log(`Hello ${repoName}!`)
-    let fileName = core.getInput('fileName')
+    fileName = core.getInput('fileName')
     console.log(`Hello ${fileName}!`)
     //console.log()
 
